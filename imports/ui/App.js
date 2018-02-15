@@ -10,6 +10,8 @@ import Session from '../session';
 import * as actions from '../redux/actions';
 import { connect } from 'react-redux'
 
+import { Root, Path } from 'react-pathfy';
+
 class App extends Component {
   componentWillMount(){
       // aqui, salva no redux o valor da sessão
@@ -20,12 +22,12 @@ class App extends Component {
   render() {
     return (
       <main>
-        <Switch>
-          <Route exact component={Login} path='/' />
-          <Route component={Register} path='/register' />
-          <Route component={Login} path='/login' />
-          <Route component={Panel} path='/panel' />
-        </Switch>
+        <Root>
+          <Path component={Login} origin='/' />
+          <Path component={Register} origin='/register' />
+          <Path component={Login} origin='/login' />
+          <Path component={Panel} origin='/panel' />
+        </Root>
       </main>
     );
   }
